@@ -20,14 +20,15 @@ public class YouTake implements MouseListener {
 	@Override
 	public void mousePressed(MouseEvent e) {
 		
-		//System.out.println(clicked(e.getX(), e.getY()));
+		System.out.println("Press:" + clicked(e.getX(), e.getY()));
+		System.out.println(e.getX() + " " + e.getY());
 		
 	}
 
 	@Override
 	public void mouseReleased(MouseEvent e) {
 
-		System.out.println(clicked(e.getX(), e.getY()));
+		System.out.println("Release:" + clicked(e.getX(), e.getY()));
 
 	}
 
@@ -36,8 +37,8 @@ public class YouTake implements MouseListener {
 		int number = -1;
 		for (int i = 1; i <= 50; i++) {
 
-			if ((x > TakeDraw.cornX[i]) && (x < TakeDraw.cornX[i] + 40) && (x > TakeDraw.cornY[i])
-					&& (x < TakeDraw.cornY[i] + 40)) {
+			if ((x > TakeDraw.cornX[i]) && (x < TakeDraw.cornX[i] + 40) && (y > TakeDraw.cornY[i])
+					&& (y < TakeDraw.cornY[i] + 40)) {
 				number = i;
 				break;
 			}

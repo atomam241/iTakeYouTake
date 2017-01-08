@@ -12,7 +12,7 @@ public class ITake extends JFrame {
 		Container c = getContentPane();
 		c.add(new TakeDraw());
 		
-		this.addMouseListener(new YouTake());
+		c.addMouseListener(new YouTake());
 
 	}
 
