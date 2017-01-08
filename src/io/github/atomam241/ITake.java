@@ -10,7 +10,9 @@ public class ITake extends JFrame {
 	public ITake() {
 		super("I'll Take, You'll Take");
 		Container c = getContentPane();
-		c.add(new Graphic());
+		c.add(new TakeDraw());
+		
+		this.addMouseListener(new YouTake());
 
 	}
 

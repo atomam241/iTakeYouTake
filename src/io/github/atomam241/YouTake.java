@@ -1,12 +1,10 @@
 package io.github.atomam241;
 
-import java.awt.Color;
-import java.awt.Graphics;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
-public class YouTake implements MouseListener{
-	
+public class YouTake implements MouseListener {
+
 	@Override
 	public void mouseClicked(MouseEvent e) {
 	}
@@ -21,23 +19,32 @@ public class YouTake implements MouseListener{
 
 	@Override
 	public void mousePressed(MouseEvent e) {
+		
+		//System.out.println(clicked(e.getX(), e.getY()));
+		
 	}
 
 	@Override
 	public void mouseReleased(MouseEvent e) {
-		
-		//clicked(e.getX, e.getY)
-		
-	}
-	
-	
-	protected void paintComponent(Graphics g) {//can i even do this?
 
-		//super.paintComponent(g);
-		
-		
-	    
+		System.out.println(clicked(e.getX(), e.getY()));
+
 	}
-	
+
+	private int clicked(int x, int y) {
+
+		int number = -1;
+		for (int i = 1; i <= 50; i++) {
+
+			if ((x > TakeDraw.cornX[i]) && (x < TakeDraw.cornX[i] + 40) && (x > TakeDraw.cornY[i])
+					&& (x < TakeDraw.cornY[i] + 40)) {
+				number = i;
+				break;
+			}
+
+		}
+		return number;
+
+	}
 
 }
