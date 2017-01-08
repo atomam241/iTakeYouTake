@@ -20,6 +20,7 @@ public class TakeDraw extends JPanel{
 	    g.drawRect(80, 80, 200, 400);
 	    g.drawRect(10, 80, 60, 400);
 	    g.drawRect(290, 80, 60, 400);
+	    
 	    g.drawString("Player 1", 20, 70);
 	    g.drawString("Player 2", 300, 70);
 	    
