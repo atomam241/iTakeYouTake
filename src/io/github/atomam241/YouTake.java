@@ -6,10 +6,12 @@ import java.awt.event.MouseMotionListener;
 import java.util.ArrayList;
 import java.util.List;
 
-public class YouTake implements MouseListener, MouseMotionListener{
+public class YouTake implements MouseListener, MouseMotionListener {
 
-	static List<Integer> crossout = new ArrayList<Integer>();
+	static List<Integer> crossoutp1 = new ArrayList<Integer>();
+	static List<Integer> crossoutp2 = new ArrayList<Integer>();
 	static int hov = 0;
+	int turn = 1;
 
 	@Override
 	public void mouseClicked(MouseEvent e) {
@@ -38,18 +40,28 @@ public class YouTake implements MouseListener, MouseMotionListener{
 
 		int clicked = clicked(e.getX(), e.getY());
 
-		if (clicked != -1 && !crossout.contains(clicked)) {
-			crossout.add(clicked);
+		if (turn % 2 == 0) { //player2
+			if (clicked != -1 && !crossoutp1.contains(clicked) && !crossoutp2.contains(clicked)) {
+				crossoutp2.add(clicked);
+				turn++;
+				System.out.println("player 2");
+			}
+		}else{ //player 1
+			if (clicked != -1 && !crossoutp1.contains(clicked) && !crossoutp2.contains(clicked)) {
+				crossoutp1.add(clicked);
+				turn++;
+				System.out.println("player 1");
+			}
 		}
 	}
-	
+
 	@Override
 	public void mouseMoved(MouseEvent e) {
 		int clicked = clicked(e.getX(), e.getY());
 
-		if (clicked != -1){
+		if (clicked != -1) {
 			hov = clicked;
-		}else{
+		} else {
 			hov = 0;
 		}
 	}
@@ -73,6 +85,6 @@ public class YouTake implements MouseListener, MouseMotionListener{
 	@Override
 	public void mouseDragged(MouseEvent arg0) {
 		// TODO Auto-generated method stub
-		
+
 	}
 }

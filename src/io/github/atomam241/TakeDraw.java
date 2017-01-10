@@ -11,6 +11,7 @@ public class TakeDraw extends JPanel {
 	public static int[] cornY = new int[60];
 
 	Color hover = new Color(0, 0, 0, 55);
+	Color tranRED = new Color(255, 0, 0, 127);
 
 	public void paintComponent(Graphics g) {
 
@@ -47,9 +48,14 @@ public class TakeDraw extends JPanel {
 		g.setColor(hover);
 		g.fillRect(cornX[YouTake.hov], cornY[YouTake.hov], 40, 40);
 
-		for (int c : YouTake.crossout) {
+		
+		for (int c : YouTake.crossoutp1) {
 
-			Color tranRED = new Color(255, 0, 0, 127);
+			g.setColor(tranRED);
+			g.fillRect(cornX[c], cornY[c], 40, 40);
+
+		}
+		for (int c : YouTake.crossoutp2) {
 
 			g.setColor(tranRED);
 			g.fillRect(cornX[c], cornY[c], 40, 40);
