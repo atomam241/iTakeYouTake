@@ -12,7 +12,7 @@ public class TakeDraw extends JPanel{
 	public static int[] cornX = new int[60];
 	public static int[] cornY = new int[60];
 
-	protected void paintComponent(Graphics g) {
+	public void paintComponent(Graphics g) {
 
 		super.paintComponent(g);
 		
@@ -41,6 +41,13 @@ public class TakeDraw extends JPanel{
 	    	
 	    }
 	    
+	   for(int c : YouTake.crossout){
+		   
+		   g.setColor(Color.RED);
+		   g.drawLine(cornX[c], cornY[c], cornX[c]+40, cornY[c]+40);
+		   
+	   }
+	      
 	}
 
 }
