@@ -49,13 +49,13 @@ public class TakeDraw extends JPanel {
 		g.fillRect(cornX[YouTake.hov], cornY[YouTake.hov], 40, 40);
 
 		
-		for (int c : YouTake.crossoutp1) {
+		for (int c : YouTake.crossoutp1) {//player 1 boxes
 
 			g.setColor(tranRED);
 			g.fillRect(cornX[c], cornY[c], 40, 40);
 
 		}
-		for (int c : YouTake.crossoutp2) {
+		for (int c : YouTake.crossoutp2) {//player 2 boxes
 
 			g.setColor(tranRED);
 			g.fillRect(cornX[c], cornY[c], 40, 40);
