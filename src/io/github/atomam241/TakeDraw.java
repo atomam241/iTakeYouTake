@@ -12,6 +12,7 @@ public class TakeDraw extends JPanel {
 
 	Color hover = new Color(0, 0, 0, 55);
 	Color tranRED = new Color(255, 0, 0, 127);
+	Color play = new Color(0, 255, 0, 100);
 
 	public void paintComponent(Graphics g) {
 
@@ -48,19 +49,50 @@ public class TakeDraw extends JPanel {
 		g.setColor(hover);
 		g.fillRect(cornX[YouTake.hov], cornY[YouTake.hov], 40, 40);
 
-		
+		int p1 = 1, p2 = 1, p1tot = 0, p2tot = 0, p1y = 0, p2y = 0, p1x = 0, p2x = 0;
 		for (int c : YouTake.crossoutp1) {//player 1 boxes
 
+			g.setColor(Color.BLACK);
+			if (p1y > 460){
+				p1 = 1;
+				p1x += 25;
+			}
+			p1y = 90+(p1*12);
+			g.drawString(Integer.toString(c), 20 + p1x, p1y);
 			g.setColor(tranRED);
 			g.fillRect(cornX[c], cornY[c], 40, 40);
-
+			p1++;
+			p1tot += c;
+			
 		}
 		for (int c : YouTake.crossoutp2) {//player 2 boxes
 
+			g.setColor(Color.BLACK);
+			if (p2y > 460){
+				p2 = 1;
+				p2x += 25;
+			}
+			p2y = 90+(p2*12);
+			g.drawString(Integer.toString(c), 300 + p2x, p2y);;
 			g.setColor(tranRED);
 			g.fillRect(cornX[c], cornY[c], 40, 40);
+			p2++;
+			p2tot += c;
 
 		}
+		
+		if(YouTake.turn % 2 == 0){
+			g.setColor(play);
+			g.fillRect(298, 58, 50, 15);
+			
+		}else{
+			g.setColor(play);
+			g.fillRect(18, 58, 50, 15);
+		}
+		
+		g.setColor(Color.BLACK);
+		g.drawString("Total: " + Integer.toString(p1tot), 20, 500);
+		g.drawString("Total: " + Integer.toString(p2tot), 300, 500);
 
 	}
 

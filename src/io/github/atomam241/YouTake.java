@@ -10,8 +10,7 @@ public class YouTake implements MouseListener, MouseMotionListener {
 
 	static List<Integer> crossoutp1 = new ArrayList<Integer>();
 	static List<Integer> crossoutp2 = new ArrayList<Integer>();
-	static int hov = 0;
-	int turn = 1;
+	static int hov = 0, turn = 1;
 
 	@Override
 	public void mouseClicked(MouseEvent e) {
@@ -43,14 +42,16 @@ public class YouTake implements MouseListener, MouseMotionListener {
 		if (turn % 2 == 0) { //player2
 			if (clicked != -1 && !crossoutp1.contains(clicked) && !crossoutp2.contains(clicked)) {
 				crossoutp2.add(clicked);
+				factors(clicked);
 				turn++;
-				System.out.println("player 2");
+				//System.out.println("player 2");
 			}
 		}else{ //player 1
 			if (clicked != -1 && !crossoutp1.contains(clicked) && !crossoutp2.contains(clicked)) {
 				crossoutp1.add(clicked);
+				factors(clicked);
 				turn++;
-				System.out.println("player 1");
+				//System.out.println("player 1");
 			}
 		}
 	}
@@ -80,6 +81,34 @@ public class YouTake implements MouseListener, MouseMotionListener {
 		}
 		return number;
 
+	}
+	
+	private void factors(int number){
+		
+		int factor = 1;
+		
+		if (turn % 2 == 0) {//player2			
+			while(factor <= number){
+	            if(number % factor == 0){
+	            	if (!crossoutp1.contains(factor) && !crossoutp2.contains(factor)) {
+	    				crossoutp2.add(factor);
+	    			}
+	            }
+	            factor++;
+	        }
+			
+		}else{ //player 1
+			while(factor <= number){
+	            if(number % factor == 0){
+	            	if (!crossoutp1.contains(factor) && !crossoutp2.contains(factor)) {
+	    				crossoutp2.add(factor);
+	    			}
+	            }
+	            factor++;
+	        }
+		}
+		
+		
 	}
 
 	@Override
