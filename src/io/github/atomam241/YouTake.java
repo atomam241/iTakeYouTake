@@ -49,6 +49,8 @@ public class YouTake implements MouseListener, MouseMotionListener{
 
 		if (clicked != -1){
 			hov = clicked;
+		}else{
+			hov = 0;
 		}
 	}
 

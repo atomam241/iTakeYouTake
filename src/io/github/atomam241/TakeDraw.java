@@ -26,6 +26,9 @@ public class TakeDraw extends JPanel {
 
 		int y = 1, x = 1;
 
+		cornX[0] = -100;
+		cornY[0] = -100;
+				
 		for (int i = 1; i <= 50; i++) {
 
 			g.drawRect(40 + (40 * x), 40 + (40 * y), 40, 40);
