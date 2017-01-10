@@ -16,6 +16,7 @@ public class ITake extends JFrame implements ActionListener {
 		c.add(new TakeDraw());
 		
 		c.addMouseListener(new YouTake());
+		c.addMouseMotionListener(new YouTake());
 		
 		Timer clock = new Timer(30, this);
 		clock.start();
