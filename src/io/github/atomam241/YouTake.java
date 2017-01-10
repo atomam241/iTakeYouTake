@@ -37,7 +37,7 @@ public class YouTake implements MouseListener {
 		
 		int clicked = clicked(e.getX(), e.getY());
 		
-		if(clicked != -1){
+		if(clicked != -1 && !crossout.contains(clicked)){
 			crossout.add(clicked);
 		}
 	}

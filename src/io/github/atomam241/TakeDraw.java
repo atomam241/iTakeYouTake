@@ -43,8 +43,10 @@ public class TakeDraw extends JPanel{
 	    
 	   for(int c : YouTake.crossout){
 		   
-		   g.setColor(Color.RED);
-		   g.drawLine(cornX[c], cornY[c], cornX[c]+40, cornY[c]+40);
+		   Color myColor = new Color(125, 0, 125, 127);
+		   
+		   g.setColor(myColor);
+		   g.fillRect(cornX[c], cornY[c], 40, 40);
 		   
 	   }
 	      
