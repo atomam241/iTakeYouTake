@@ -91,7 +91,7 @@ public class YouTake implements MouseListener, MouseMotionListener {
 			while(factor <= number){
 	            if(number % factor == 0){
 	            	if (!crossoutp1.contains(factor) && !crossoutp2.contains(factor)) {
-	    				crossoutp2.add(factor);
+	    				crossoutp1.add(factor);
 	    			}
 	            }
 	            factor++;
