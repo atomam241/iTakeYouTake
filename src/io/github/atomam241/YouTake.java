@@ -11,6 +11,7 @@ public class YouTake implements MouseListener, MouseMotionListener {
 	static List<Integer> crossoutp1 = new ArrayList<Integer>();
 	static List<Integer> crossoutp2 = new ArrayList<Integer>();
 	static int hov = 0, turn = 1;
+	static boolean start = true;
 
 	@Override
 	public void mouseClicked(MouseEvent e) {

@@ -14,33 +14,31 @@ public class ITake extends JFrame implements ActionListener {
 		super("I'll Take, You'll Take");
 		Container c = getContentPane();
 		c.add(new TakeDraw());
-		
+
 		c.addMouseListener(new YouTake());
 		c.addMouseMotionListener(new YouTake());
-		
+
 		Timer clock = new Timer(30, this);
 		clock.start();
 
 	}
 
-	public static void main(String[] args) {
-		ITake frame = new ITake();
+	public static void game(String[] args) {
 
-		frame.setSize(367, 560);
-		frame.setLocationRelativeTo(null);
+			ITake frame = new ITake();
 
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frame.setVisible(true);
-		frame.setResizable(false);
+			frame.setSize(367, 560);
+			frame.setLocationRelativeTo(null);
+
+			frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+			frame.setVisible(true);
+			frame.setResizable(false);
 	}
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		
-		
-		
+
 		repaint();
 	}
 
 }
-
