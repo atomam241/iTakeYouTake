@@ -11,8 +11,8 @@ public class TakeDraw extends JPanel {
 	public static int[] cornY = new int[60];
 
 	Color hover = new Color(0, 0, 0, 55);
-	Color tranRED = new Color(255, 0, 0, 127);
-	Color play = new Color(0, 255, 0, 100);
+	Color player1 = new Color(255, 0, 0, 127);
+	Color player2 = new Color(0, 0, 255, 127);
 	static String pl2 = "Player2";
 
 	public void paintComponent(Graphics g) {
@@ -25,7 +25,7 @@ public class TakeDraw extends JPanel {
 		g.drawRect(290, 80, 60, 400);
 
 		g.drawString("Player 1", 20, 70);
-		g.drawString(pl2, 295-(pl2.length()/2), 70);
+		g.drawString(pl2, 292, 70);
 		int y = 1, x = 1;
 
 		cornX[0] = -100;
@@ -59,7 +59,7 @@ public class TakeDraw extends JPanel {
 			}
 			p1y = 90+(p1*12);
 			g.drawString(Integer.toString(c), 20 + p1x, p1y);
-			g.setColor(tranRED);
+			g.setColor(player1);
 			g.fillRect(cornX[c], cornY[c], 40, 40);
 			p1++;
 			p1tot += c;
@@ -74,7 +74,7 @@ public class TakeDraw extends JPanel {
 			}
 			p2y = 90+(p2*12);
 			g.drawString(Integer.toString(c), 300 + p2x, p2y);;
-			g.setColor(tranRED);
+			g.setColor(player2);
 			g.fillRect(cornX[c], cornY[c], 40, 40);
 			p2++;
 			p2tot += c;
@@ -82,11 +82,11 @@ public class TakeDraw extends JPanel {
 		}
 		
 		if(YouTake.turn % 2 == 0){
-			g.setColor(play);
-			g.fillRect(298, 58, 50, 15);
+			g.setColor(player2);
+			g.fillRect(290, 58, 50, 15);
 			
 		}else{
-			g.setColor(play);
+			g.setColor(player1);
 			g.fillRect(18, 58, 50, 15);
 		}
 		
