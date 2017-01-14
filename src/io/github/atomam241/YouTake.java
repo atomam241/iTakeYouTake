@@ -10,6 +10,7 @@ public class YouTake implements MouseListener, MouseMotionListener {
 
 	static List<Integer> crossoutp1 = new ArrayList<Integer>();
 	static List<Integer> crossoutp2 = new ArrayList<Integer>();
+	static List<Integer> aichoose = new ArrayList<Integer>();
 	static int hov = 0, turn = 1;
 	static boolean start = true;
 
@@ -55,32 +56,33 @@ public class YouTake implements MouseListener, MouseMotionListener {
 				factors(clicked);
 				turn++;
 				// System.out.println("player 1");
-				if(TakeStart.Ai){
-					boolean take = true;
+				if (TakeStart.Ai) {
 					int pick = 1;
-					for(int i = 50; i > 1; i--)
-					{
-						if(checkPrime(i) && !crossoutp1.contains(i) && !crossoutp2.contains(i))
-						{
-							
-							take = false;
-							crossoutp2.add(i);
-							turn++;
-							factors(i);
-							break;
+					int prevloss = 100;
+					int loss = 0;
+					for (int i = 50; i > 1; i--) {
+						if (!crossoutp1.contains(i) && !crossoutp2.contains(i)) {
+							findfac(i);
+							int facsum = 0;
+							for (int n : aichoose) {
+								// System.out.println(n);
+								facsum += n;
+							}
+							loss = facsum - i;
+							// System.out.println(i + " with " + loss);
+							if (loss < prevloss) {
+
+								pick = i;
+								prevloss = loss;
+							}
 						}
 					}
-					
-					
-					while(take){
-						if (!crossoutp1.contains(pick) && !crossoutp2.contains(pick)) {
-							take = false;
-							crossoutp2.add(pick);
-							turn++;
-							factors(pick);
-						}else{
-							pick++;
-						}
+
+					if (!crossoutp1.contains(pick) && !crossoutp2.contains(pick)) {
+						crossoutp2.add(pick);
+
+						factors(pick);
+						turn++;
 					}
 				}
 			}
@@ -146,30 +148,19 @@ public class YouTake implements MouseListener, MouseMotionListener {
 		// TODO Auto-generated method stub
 
 	}
-	
-	private boolean checkPrime(int i){
-		boolean realPrime = false;
-		
-		for(int n = 1; n <= i/2 + 1; n++)
-		{
-			if(i % n == 0)
-			{
-				if(n != i && n != 1)
-				{
-					realPrime = false;
-					break;
-				}
-				else
-				{
-					realPrime = true;
-				}
+
+	private void findfac(int i) {
+
+		// System.out.println(aichoose);
+		aichoose.clear();
+		int factor = 1;
+		while (factor <= i) {
+			if (i % factor == 0 && i != factor && !crossoutp1.contains(factor) && !crossoutp2.contains(factor)) {
+				aichoose.add(factor);
 			}
-			else
-			{
-				realPrime = true;
-			}
+			factor++;
 		}
-			
-		return realPrime;
+
 	}
+
 }
