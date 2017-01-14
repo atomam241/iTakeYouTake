@@ -13,6 +13,7 @@ public class TakeDraw extends JPanel {
 	Color hover = new Color(0, 0, 0, 55);
 	Color tranRED = new Color(255, 0, 0, 127);
 	Color play = new Color(0, 255, 0, 100);
+	static String pl2 = "Player2";
 
 	public void paintComponent(Graphics g) {
 
@@ -24,7 +25,7 @@ public class TakeDraw extends JPanel {
 		g.drawRect(290, 80, 60, 400);
 
 		g.drawString("Player 1", 20, 70);
-		g.drawString("Player 2", 300, 70);
+		g.drawString(pl2, 300, 70);
 
 		int y = 1, x = 1;
 

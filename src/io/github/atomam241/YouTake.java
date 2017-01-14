@@ -40,19 +40,35 @@ public class YouTake implements MouseListener, MouseMotionListener {
 
 		int clicked = clicked(e.getX(), e.getY());
 
-		if (turn % 2 == 0) { //player2
+		if (turn % 2 == 0) { // player2
+
 			if (clicked != -1 && !crossoutp1.contains(clicked) && !crossoutp2.contains(clicked)) {
 				crossoutp2.add(clicked);
 				factors(clicked);
 				turn++;
-				//System.out.println("player 2");
+				// System.out.println("player 2");
 			}
-		}else{ //player 1
+
+		} else { // player 1
 			if (clicked != -1 && !crossoutp1.contains(clicked) && !crossoutp2.contains(clicked)) {
 				crossoutp1.add(clicked);
 				factors(clicked);
 				turn++;
-				//System.out.println("player 1");
+				// System.out.println("player 1");
+				if(TakeStart.Ai){
+					boolean take = true;
+					int pick = 1;
+					while(take){
+						if (!crossoutp1.contains(pick) && !crossoutp2.contains(pick)) {
+							take = false;
+							crossoutp2.add(pick);
+							turn++;
+							factors(pick);
+						}else{
+							pick++;
+						}
+					}
+				}
 			}
 		}
 	}
@@ -83,33 +99,32 @@ public class YouTake implements MouseListener, MouseMotionListener {
 		return number;
 
 	}
-	
-	private void factors(int number){
-		
+
+	private void factors(int number) {
+
 		int factor = 1;
-		
-		if (turn % 2 == 0) {//player2			
-			while(factor <= number){
-	            if(number % factor == 0){
-	            	if (!crossoutp1.contains(factor) && !crossoutp2.contains(factor)) {
-	    				crossoutp1.add(factor);
-	    			}
-	            }
-	            factor++;
-	        }
-			
-		}else{ //player 1
-			while(factor <= number){
-	            if(number % factor == 0){
-	            	if (!crossoutp1.contains(factor) && !crossoutp2.contains(factor)) {
-	    				crossoutp2.add(factor);
-	    			}
-	            }
-	            factor++;
-	        }
+
+		if (turn % 2 == 0) {// player2
+			while (factor <= number) {
+				if (number % factor == 0) {
+					if (!crossoutp1.contains(factor) && !crossoutp2.contains(factor)) {
+						crossoutp1.add(factor);
+					}
+				}
+				factor++;
+			}
+
+		} else { // player 1
+			while (factor <= number) {
+				if (number % factor == 0) {
+					if (!crossoutp1.contains(factor) && !crossoutp2.contains(factor)) {
+						crossoutp2.add(factor);
+					}
+				}
+				factor++;
+			}
 		}
-		
-		
+
 	}
 
 	@Override
