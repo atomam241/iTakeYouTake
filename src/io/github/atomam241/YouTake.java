@@ -58,6 +58,20 @@ public class YouTake implements MouseListener, MouseMotionListener {
 				if(TakeStart.Ai){
 					boolean take = true;
 					int pick = 1;
+					for(int i = 50; i > 1; i--)
+					{
+						if(checkPrime(i) && !crossoutp1.contains(i) && !crossoutp2.contains(i))
+						{
+							
+							take = false;
+							crossoutp2.add(i);
+							turn++;
+							factors(i);
+							break;
+						}
+					}
+					
+					
 					while(take){
 						if (!crossoutp1.contains(pick) && !crossoutp2.contains(pick)) {
 							take = false;
@@ -131,5 +145,31 @@ public class YouTake implements MouseListener, MouseMotionListener {
 	public void mouseDragged(MouseEvent arg0) {
 		// TODO Auto-generated method stub
 
+	}
+	
+	private boolean checkPrime(int i){
+		boolean realPrime = false;
+		
+		for(int n = 1; n <= i/2 + 1; n++)
+		{
+			if(i % n == 0)
+			{
+				if(n != i && n != 1)
+				{
+					realPrime = false;
+					break;
+				}
+				else
+				{
+					realPrime = true;
+				}
+			}
+			else
+			{
+				realPrime = true;
+			}
+		}
+			
+		return realPrime;
 	}
 }
