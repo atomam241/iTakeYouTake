@@ -14,6 +14,7 @@ public class TakeDraw extends JPanel {
 	Color player1 = new Color(255, 0, 0, 127);
 	Color player2 = new Color(0, 0, 255, 127);
 	static String pl2 = "Player2";
+	static String pl1 = "Player1";
 
 	public void paintComponent(Graphics g) {
 
@@ -24,7 +25,7 @@ public class TakeDraw extends JPanel {
 		g.drawRect(10, 80, 60, 400);
 		g.drawRect(290, 80, 60, 400);
 
-		g.drawString("Player 1", 20, 70);
+		g.drawString(pl1, 20, 70);
 		g.drawString(pl2, 292, 70);
 		int y = 1, x = 1;
 

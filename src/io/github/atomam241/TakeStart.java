@@ -27,7 +27,7 @@ public class TakeStart extends JFrame implements ActionListener, MouseListener, 
 	}
 
 	static int hover = 0, click = 0;
-	static boolean Ai = false;
+	static boolean Aip1 = false, Aip2 = false;
 
 	public static void main(String[] args) {
 
@@ -90,19 +90,23 @@ public class TakeStart extends JFrame implements ActionListener, MouseListener, 
 
 		click = mouse(e.getX(), e.getY());
 
-		if (click == 1) {// YES
+		if (click == 1) {// YES p2
 			new TakeStart();
-			this.setVisible(false);
-			
+			this.setVisible(false);			
 			TakeDraw.pl2 = "HAL the AI";
-			Ai = true;
-			
-			
+			Aip2 = true;			
 			ITake.game();
 		} else if (click == 2) {// NO
 			new TakeStart();
 			this.setVisible(false);
 			ITake.game();
+		} else if (click == 3) {// YES p1
+			new TakeStart();
+			this.setVisible(false);	
+			TakeDraw.pl1 = "HAL the AI";
+			Aip1 = true;			
+			ITake.game();
+			YouTake.ai1();
 		}
 
 		/*
