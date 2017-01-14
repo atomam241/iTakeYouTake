@@ -27,7 +27,10 @@ public class StartDraw extends JPanel {
 		g.drawString("Do you want an AI?", 100, 40);
 
 		g.setColor(Color.BLUE);
+		
 		if (TakeStart.hover == 1) {
+			
+			
 			g.fillRect(50, 70, 60, 20);
 
 		} else if (TakeStart.hover == 2) {

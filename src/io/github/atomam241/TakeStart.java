@@ -25,20 +25,20 @@ public class TakeStart extends JFrame implements ActionListener, MouseListener, 
 		clock.start();
 
 	}
-	
-	
-	static int hover = 0;
-	
+
+	static int hover = 0, click = 0;
+
 	public static void main(String[] args) {
 
-			TakeStart frame = new TakeStart();
+		TakeStart frame = new TakeStart();
 
-			frame.setSize(300,200);
-			frame.setLocationRelativeTo(null);
+		frame.setSize(300, 200);
+		frame.setLocationRelativeTo(null);
 
-			frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-			frame.setVisible(true);
-			frame.setResizable(false);
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame.setVisible(true);
+		frame.setResizable(false);
+
 	}
 
 	@Override
@@ -49,57 +49,65 @@ public class TakeStart extends JFrame implements ActionListener, MouseListener, 
 	@Override
 	public void mouseDragged(MouseEvent e) {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	@Override
 	public void mouseMoved(MouseEvent e) {
 		// TODO Auto-generated method stub
-		int on = mouse(e.getX(), e.getY());
-		
-		System.out.println(on);
-		
-		if(on == -1){
-			hover = on;
-		}else{
-			hover = 0;
-		}
-		
+		hover = mouse(e.getX(), e.getY());
+
 	}
 
 	@Override
 	public void mouseClicked(MouseEvent e) {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	@Override
 	public void mouseEntered(MouseEvent e) {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	@Override
 	public void mouseExited(MouseEvent e) {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	@Override
 	public void mousePressed(MouseEvent e) {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	@Override
 	public void mouseReleased(MouseEvent e) {
 		// TODO Auto-generated method stub
-		
+
+		click = mouse(e.getX(), e.getY());
+
+		if (click == 1) {// YES
+			new TakeStart();
+			this.setVisible(false);
+			ITake.game();
+		} else if (click == 2) {// NO
+			new TakeStart();
+			this.setVisible(false);
+			ITake.game();
+		}
+
+		/*
+		 * int clk = if (clk != -1) { hover = clk; } else { hover = 0; }
+		 */
+
 	}
-	
-	public int mouse(int x, int y){
-		
-		int number = -1;
+
+	public int mouse(int x, int y) {
+
+		int number = 0;
 		for (int i = 1; i <= 4; i++) {
 
 			if ((x > StartDraw.yesnX[i]) && (x < StartDraw.yesnX[i] + 60) && (y > StartDraw.yesnY[i])

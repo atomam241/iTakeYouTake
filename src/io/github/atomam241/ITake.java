@@ -23,7 +23,7 @@ public class ITake extends JFrame implements ActionListener {
 
 	}
 
-	public static void game(String[] args) {
+	public static void game() {
 
 			ITake frame = new ITake();
 
