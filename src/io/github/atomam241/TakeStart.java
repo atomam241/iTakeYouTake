@@ -33,7 +33,7 @@ public class TakeStart extends JFrame implements ActionListener, MouseListener, 
 
 		TakeStart frame = new TakeStart();
 
-		frame.setSize(300, 200);
+		frame.setSize(300, 150);
 		frame.setLocationRelativeTo(null);
 
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
