@@ -25,12 +25,7 @@ public class TakeDraw extends JPanel {
 		g.drawRect(290, 80, 60, 400);
 
 		g.drawString("Player 1", 20, 70);
-<<<<<<< HEAD
 		g.drawString(pl2, 295-(pl2.length()/2), 70);
-=======
-		g.drawString(pl2, 290, 70);
->>>>>>> branch 'master' of https://github.com/atomam241/iTakeYouTake.git
-
 		int y = 1, x = 1;
 
 		cornX[0] = -100;
