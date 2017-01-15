@@ -14,4 +14,11 @@
 	<natures>
 		<nature>org.eclipse.jdt.core.javanature</nature>
 	</natures>
+	<linkedResources>
+		<link>
+			<name>src/io/github/atomam241/ic_launcher.png</name>
+			<type>1</type>
+			<location>C:/Users/omccl/workspace/iTakeYouTake/src/io/github/atomam241/img/ic_launcher.png</location>
+		</link>
+	</linkedResources>
 </projectDescription>

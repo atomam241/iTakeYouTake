@@ -3,7 +3,10 @@ package io.github.atomam241;
 import java.awt.Container;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.File;
+import java.io.IOException;
 
+import javax.imageio.ImageIO;
 import javax.swing.JFrame;
 import javax.swing.Timer;
 
@@ -27,6 +30,12 @@ public class ITake extends JFrame implements ActionListener {
 
 			ITake frame = new ITake();
 
+			try {
+				frame.setIconImage(ImageIO.read(new File("src/io/github/atomam241/img/ic_launcher.png")));
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 			frame.setSize(367, 560);
 			frame.setLocationRelativeTo(null);
 

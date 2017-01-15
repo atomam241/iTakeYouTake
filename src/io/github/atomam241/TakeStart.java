@@ -6,7 +6,10 @@ import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.awt.event.MouseMotionListener;
+import java.io.File;
+import java.io.IOException;
 
+import javax.imageio.ImageIO;
 import javax.swing.JFrame;
 import javax.swing.Timer;
 
@@ -31,8 +34,17 @@ public class TakeStart extends JFrame implements ActionListener, MouseListener, 
 
 	public static void main(String[] args) {
 
+		
+		//ImageIcon img = new ImageIcon("src/io/github/atomam241/ic_launcher.png");
 		TakeStart frame = new TakeStart();
 
+		
+		try {
+			frame.setIconImage(ImageIO.read(new File("src/io/github/atomam241/img/ic_launcher.png")));
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		frame.setSize(300, 150);
 		frame.setLocationRelativeTo(null);
 
