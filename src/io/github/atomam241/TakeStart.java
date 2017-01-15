@@ -104,7 +104,7 @@ public class TakeStart extends JFrame implements ActionListener, MouseListener, 
 			new TakeStart();
 			this.setVisible(false);	
 			TakeDraw.pl1 = "HAL the AI";
-			Aip1 = true;			
+			Aip1 = true;
 			ITake.game();
 			YouTake.ai1();
 		}

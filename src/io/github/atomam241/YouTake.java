@@ -57,35 +57,7 @@ public class YouTake implements MouseListener, MouseMotionListener {
 				factors(clicked);
 				turn++;
 				// System.out.println("player 1");
-				if (TakeStart.Aip2) {
-					int pick = 1;
-					int prevloss = 100;
-					int loss = 0;
-					for (int i = 50; i > 1; i--) {
-						if (!crossoutp1.contains(i) && !crossoutp2.contains(i)) {
-							findfac(i);
-							int facsum = 0;
-							for (int n : aichoose) {
-								// System.out.println(n);
-								facsum += n;
-							}
-							loss = facsum - i;
-							// System.out.println(i + " with " + loss);
-							if (loss < prevloss) {
-
-								pick = i;
-								prevloss = loss;
-							}
-						}
-					}
-
-					if (!crossoutp1.contains(pick) && !crossoutp2.contains(pick)) {
-						crossoutp2.add(pick);
-
-						factors(pick);
-						turn++;
-					}
-				}
+				ai2();
 			}
 		}
 	}
@@ -164,6 +136,39 @@ public class YouTake implements MouseListener, MouseMotionListener {
 
 	}
 
+	static void ai2() {
+		if (TakeStart.Aip2) {
+			int pick = 1;
+			int prevloss = 100;
+			int loss = 0;
+			for (int i = 50; i > 1; i--) {
+				if (!crossoutp1.contains(i) && !crossoutp2.contains(i)) {
+					findfac(i);
+					int facsum = 0;
+					for (int n : aichoose) {
+						// System.out.println(n);
+						facsum += n;
+					}
+					loss = facsum - i;
+					// System.out.println(i + " with " + loss);
+					if (loss < prevloss) {
+
+						pick = i;
+						prevloss = loss;
+					}
+				}
+			}
+
+			if (!crossoutp1.contains(pick) && !crossoutp2.contains(pick)) {
+				crossoutp2.add(pick);
+
+				factors(pick);
+				turn++;
+			}
+		}
+		//ai1(); <--lol
+	}
+
 	static void ai1() {
 
 		if (turn % 2 != 0) {
@@ -195,5 +200,6 @@ public class YouTake implements MouseListener, MouseMotionListener {
 				turn++;
 			}
 		}
+		//ai2(); <--lol
 	}
 }
