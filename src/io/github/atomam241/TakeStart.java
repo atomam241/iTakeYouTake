@@ -1,13 +1,14 @@
 package io.github.atomam241;
 
 import java.awt.Container;
+import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.awt.event.MouseMotionListener;
-import java.io.File;
 import java.io.IOException;
+import java.net.URL;
 
 import javax.imageio.ImageIO;
 import javax.swing.JFrame;
@@ -31,20 +32,27 @@ public class TakeStart extends JFrame implements ActionListener, MouseListener, 
 
 	static int hover = 0, click = 0;
 	static boolean Aip1 = false, Aip2 = false;
+	static URL url = TakeStart.class.getResource("/io/github/atomam241/img/ic_launcher.png");
+	static Image image = null;
+	
 
 	public static void main(String[] args) {
 
-		
-		//ImageIcon img = new ImageIcon("src/io/github/atomam241/ic_launcher.png");
+		// ImageIcon img = new
+		// ImageIcon("src/io/github/atomam241/ic_launcher.png");
 		TakeStart frame = new TakeStart();
 
+		url = TakeStart.class.getResource("/io/github/atomam241/img/ic_launcher.png");
 		
 		try {
-			frame.setIconImage(ImageIO.read(new File("src/io/github/atomam241/img/ic_launcher.png")));
+			image = ImageIO.read(url);
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		
+		frame.setIconImage(image);
+		
 		frame.setSize(300, 150);
 		frame.setLocationRelativeTo(null);
 
@@ -68,7 +76,7 @@ public class TakeStart extends JFrame implements ActionListener, MouseListener, 
 	@Override
 	public void mouseMoved(MouseEvent e) {
 		// TODO Auto-generated method stub
-		hover = mouse(e.getX(), e.getY());
+		hover = mouse(e.getX(), e.getY(), StartDraw.yesnX, StartDraw.yesnY);
 
 	}
 
@@ -100,21 +108,21 @@ public class TakeStart extends JFrame implements ActionListener, MouseListener, 
 	public void mouseReleased(MouseEvent e) {
 		// TODO Auto-generated method stub
 
-		click = mouse(e.getX(), e.getY());
+		click = mouse(e.getX(), e.getY(), StartDraw.yesnX, StartDraw.yesnY);
 
 		if (click == 1) {// YES p2
 			new TakeStart();
-			this.setVisible(false);			
+			this.setVisible(false);
 			TakeDraw.pl2 = "HAL the AI";
-			Aip2 = true;			
+			Aip2 = true;
 			ITake.game();
 		} else if (click == 2) {// NO
 			new TakeStart();
 			this.setVisible(false);
-			ITake.game();
+			Network.window();
 		} else if (click == 3) {// YES p1
 			new TakeStart();
-			this.setVisible(false);	
+			this.setVisible(false);
 			TakeDraw.pl1 = "HAL the AI";
 			Aip1 = true;
 			ITake.game();
@@ -127,13 +135,13 @@ public class TakeStart extends JFrame implements ActionListener, MouseListener, 
 
 	}
 
-	public int mouse(int x, int y) {
+	public static int mouse(int x, int y, int[] Xarr, int[] Yarr) {
 
 		int number = 0;
-		for (int i = 1; i <= 4; i++) {
+		for (int i = 1; i <= (Xarr.length-1); i++) {
 
-			if ((x > StartDraw.yesnX[i]) && (x < StartDraw.yesnX[i] + 60) && (y > StartDraw.yesnY[i])
-					&& (y < StartDraw.yesnY[i] + 20)) {
+			if ((x > Xarr[i]) && (x < Xarr[i] + 60) && (y > Yarr[i])
+					&& (y < Yarr[i] + 20)) {
 				number = i;
 				break;
 			}
