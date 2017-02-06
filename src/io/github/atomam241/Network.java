@@ -112,6 +112,16 @@ public class Network extends JFrame implements ActionListener, MouseListener, Mo
 	public void mouseReleased(MouseEvent e) {
 		// TODO Auto-generated method stub
 		click = TakeStart.mouse(e.getX(), e.getY(), NetDraw.NetynX, NetDraw.NetynY);
+		
+		
+		if (click == 1) {// Yes
+			server();			
+		} else if (click == 2) {// NO
+			this.setVisible(false);
+			ITake.game();
+		}else if (click == 3){
+			
+		}
 
 	}
 }

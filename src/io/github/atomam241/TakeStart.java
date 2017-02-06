@@ -111,17 +111,14 @@ public class TakeStart extends JFrame implements ActionListener, MouseListener, 
 		click = mouse(e.getX(), e.getY(), StartDraw.yesnX, StartDraw.yesnY);
 
 		if (click == 1) {// YES p2
-			new TakeStart();
 			this.setVisible(false);
 			TakeDraw.pl2 = "HAL the AI";
 			Aip2 = true;
 			ITake.game();
 		} else if (click == 2) {// NO
-			new TakeStart();
 			this.setVisible(false);
 			Network.window();
 		} else if (click == 3) {// YES p1
-			new TakeStart();
 			this.setVisible(false);
 			TakeDraw.pl1 = "HAL the AI";
 			Aip1 = true;
